@@ -9,58 +9,96 @@
     $result2 = mysqli_query($conn, $query2);
 ?>
 
+
+
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photographer</title>
-</head>
-<body>
-    <nav>
-        <a href="logout.php">Logout</a>
-    </nav>
-    <h1>Photographer</h1>
-    <table border="1" cellpadding="10" cellspacing="0">
-        <tr>
-            <th>No</th>
-            <th>Nama</th>
-            <th>No. HP</th>
-            <th>ID_Kamera</th>
-        </tr>
-    <?php
-    while( $row = mysqli_fetch_assoc($result)) {
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/admin.css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portfolibsite</title>
 
-    ?>
-        <tr>
-            <td style="text-align: center;"><?php echo $row["id"] ?></td>
-            <td><?php echo $row["nama"] ?></td>
-            <td><?php echo $row["nomor_hp"] ?></td>
-            <td><?php echo $row["id_kamera"] ?></td>
-        </tr>
-    <?php }?>   
-    </table>
-    
-    <h1>Camera</h1>
-    <table border="1" cellpadding="10" cellspacing="0">
-        <tr>
-            <th>No</th>
-            <th>Kamera</th>
-            <th>Jenis</th>
-            <th>Kapasitas</th>
-        </tr>
-    <?php
-    while( $row = mysqli_fetch_assoc($result2)) {
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="header">
+                <p><b>ABSLT STUDIO</b></p>
+                <a href="logout.php">Logout</a>
+            </div>
+            <div class="content">
+                <div class="service">
+                    <h3>Photographer</h3>
+                    <table border="1" cellpadding="10" cellspacing="0" class="ctable">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>No. HP</th>
+                                <th>ID_Kamera</th>
+                            </tr>
+                        </thead>
+                    <?php
+                    while( $row = mysqli_fetch_assoc($result)) {
 
-    ?>
-        <tr>
-            <td style="text-align: center;"><?php echo $row["id"] ?></td>
-            <td><?php echo $row["kamera"] ?></td>
-            <td><?php echo $row["jenis"] ?></td>
-            <td><?php echo $row["kapasitas"] ?></td>
-        </tr>
-    <?php }?>   
-    </table>
-</body>
+                    ?>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center;"><?php echo $row["id"] ?></td>
+                                <td><?php echo $row["nama"] ?></td>
+                                <td><?php echo $row["nomor_hp"] ?></td>
+                                <td><?php echo $row["id_kamera"] ?></td>
+                            </tr>
+                        </tbody>
+                    <?php }?>   
+                    </table>
+                    
+                    <h3>Camera</h3>
+                    <table border="1" cellpadding="10" cellspacing="0" class="ctable">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Kamera</th>
+                                <th>Jenis</th>
+                                <th>Kapasitas</th>
+                            </tr>
+                        </thead>
+                    <?php
+                    while( $row = mysqli_fetch_assoc($result2)) {
+
+                    ?>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center;"><?php echo $row["id"] ?></td>
+                                <td><?php echo $row["kamera"] ?></td>
+                                <td><?php echo $row["jenis"] ?></td>
+                                <td><?php echo $row["kapasitas"] ?></td>
+                            </tr>
+                        </tbody>
+                    <?php }?>   
+                    </table>
+                </div>
+            </div>
+            <footer>
+                <b>ABSLT STUDIO</b></a>
+                <br>
+                <p id="slogan">REDEFINING MOMENTS</p>
+                <br>
+                <p id="kontak"><b>Found us</b></p>
+                <br>
+                
+                    <a href="https://instagram.com/indrabna?igshid=OGQ2MjdiOTE=" target="_blank" ><img src="../img/ig.png"></a>  
+                    <a href=""><img src="../img/yt.png"></a>
+                    <br><br>
+                    <div class="copy">
+                        <p><b>&copy; 2023 Abslt Studios. All rights reserved.</b></p>
+                    </div>
+                </footer>
+        </div>
+    </body>
 </html>
+
+
+
