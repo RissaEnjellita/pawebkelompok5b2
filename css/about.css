@@ -1,0 +1,203 @@
+@font-face {
+    font-family: header_font;
+    src: url(../font/header_font.otf);
+}
+
+@font-face {
+    font-family: nav_font;
+    src: url(../font/nav_font.ttf);
+}
+@font-face {
+    font-family: footer_name_font;
+    src: url(../font/footer_name_font.ttf);
+}
+
+@font-face {
+    font-family: slogan_font;
+    src: url(../font/slogan_font.ttf);
+}
+
+*{
+    margin: 0 auto;
+}
+
+.wrapper{
+    
+    width: 100%;
+}
+
+.header{
+    width: 100%;
+    z-index: 1000;
+    position: fixed;
+    height: 82px;
+    background: #ffffff;
+    top: -22px;
+}
+.header a{
+    letter-spacing: 1.3px;
+    font-family: nav_font;
+    float: right;
+    padding-top: 42px;
+    padding-right: 39px;
+    text-decoration: none;
+    color: #694e52;
+    top: 10px;
+    
+}
+.header p{
+    letter-spacing: 1.3px;
+    font-family: header_font;
+    font-size: 23px;
+    padding: 38px 0px 0px 135px;
+    display: inline-block;
+    top: 10px;
+    color: #694e52;
+}
+.header a:hover{
+        transform: scale(1.1);
+}
+.content{
+    position: relative;
+    image-resolution: 100%;
+    background-image: url(../img/maudy-ayunda-4_169\ \(3\).png);
+    min-height: 950px;
+    background-repeat: no-repeat;
+    margin: 0px 0px;
+    width: 100%;
+    background-size: 100% 950px;
+    padding-top: 300px; 
+}
+.content p{
+    font-family: nav_font;
+    letter-spacing: 2px;
+    font-size: 50px;
+    text-align: center;
+    color: #ffffff;
+    padding-top: 10px;
+}
+.content h1{
+    font-family: nav_font;
+    text-align: center;
+    color: antiquewhite;
+    font-size: 15px;
+    letter-spacing: 1.1px;
+    padding-top: 10px;
+}
+.service {
+    padding: 250px 0px 250px 100px;
+    background-image: url(../img/prewed-1.jpg) ;
+    background-size: 100%;
+    background-position: center center;
+    margin-top: 565px;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+}
+.service:hover, .service:focus, .service:active {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+}
+.service p{
+    font-family: nav_font;
+    letter-spacing: 2px;
+    font-size: 50px;
+    text-align: center;
+    color: #ffffff;
+    padding-top: 50px;
+}
+.service h1{
+    font-family: nav_font;
+    text-align: center;
+    color: antiquewhite;
+    font-size: 15px;
+    word-spacing: 10px;
+    padding-top: 10px;
+}
+.penjelasan {
+    padding: 250px 0px 250px 100px;
+    background-image: url(../img/contoh-foto-prewedding-outdoor-sederhana-1.png) ;
+    background-size: 593px 737px;
+    background-repeat: no-repeat;
+    background-position: right;
+    margin-top: 20px;
+    margin-right: 100px;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+}
+.penjelasan p{
+    font-family: nav_font;
+    letter-spacing: 2px;
+    font-size: 50px;
+    text-align: left;
+    color: antiquewhite;
+    padding-top: 50px;
+    margin-top: -150px;
+    margin-bottom: 30px;
+}
+.penjelasan h1{
+    font-family: nav_font;
+    text-align: left;
+    color: #694e52;
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding-top: 10px;
+    margin-right: 700px;
+    margin-bottom: 30px;
+}
+#home_about a{
+    text-decoration: none;
+    color: #161616f4;    
+    letter-spacing: 1.3px;
+    font-family: header_font;
+    font-size: 23px;
+}
+footer {
+    background-color: #F3F5F5;
+    padding: 40px 0px 30px 60px;
+    margin-top: 10px;
+}
+
+footer div a{
+    margin-left: 7px;
+    text-indent: 5px;
+}
+
+#nama {
+    color: #694e52;
+    text-decoration: none;
+    font-size: 30px;
+    letter-spacing: 3px;
+    font-family: header_font;
+}
+
+#slogan {
+    color: #694e52;
+    font-size: 12px;
+    font-family: slogan_font;
+    letter-spacing: 3px;
+    margin-bottom: 2px;
+}
+
+#kontak {
+    color: #694e52;
+    font-size: 18px;
+    font-family: nav_font;
+    letter-spacing: 2px;
+}
+
+hr{
+    color: #694e52;
+}
+.copy p{
+    color:#7b7b7b;
+    font-family: footer_name_font;
+}

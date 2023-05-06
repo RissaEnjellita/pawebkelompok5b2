@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 
 <?php
 
@@ -52,29 +52,65 @@ if( isset($_POST["update"])){
 
 ?>
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Photographer</title>
-</head>
-<body>
-    <h1>Update Photographer</h1>
-    <form action="" method="post">
-        <?php while( $row = mysqli_fetch_assoc( $result)) {?>
-            <input type="hidden" name="id" value="<?php echo $row['id']?>">
-        Nama:
-        <input type="text" name="nama" value="<?php echo $row['nama']?>">
-        <br>
-        No. HP:
-        <input type="text" name="nomor_hp" value="<?php echo $row['nomor_hp']?>">
-        <br>
-        ID Kamera:
-        <input type="text" name="id_kamera" value="<?php echo $row['id_kamera']?>">
-        <br>
-        <button type="submit" name="update">UPDATE</button>
-        <?php }?>
-    </form>
-</body>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/crud.css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portfolibsite</title>
+
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="header">
+                <p><b>ABSLT STUDIO</b></p>
+                <a href="logout.php">Logout</a>
+            </div>
+            <div class="content">
+            <h3>Update Photographer</h3>
+            <form action="" method="post">
+                <?php while( $row = mysqli_fetch_assoc( $result)) {?>
+                    <input type="hidden" name="id" value="<?php echo $row['id']?>">
+                Nama:
+                <br>
+                <br>
+                <input type="text" name="nama" value="<?php echo $row['nama']?>">
+                <br>
+                No. HP:
+                <br>
+                <br>
+                <input type="text" name="nomor_hp" value="<?php echo $row['nomor_hp']?>">
+                <br>
+                ID Kamera:
+                <br>
+                <br>
+                <input type="text" name="id_kamera" value="<?php echo $row['id_kamera']?>">
+                <br>
+                <button type="submit" name="update">UPDATE</button>
+                <?php }?>
+            </form>
+            </div>
+            <footer>
+                <b>ABSLT STUDIO</b></a>
+                <br>
+                <p id="slogan">REDEFINING MOMENTS</p>
+                <br>
+                <p id="kontak"><b>Found us</b></p>
+                <br>
+                
+                    <a href="https://instagram.com/indrabna?igshid=OGQ2MjdiOTE=" target="_blank" ><img src="../img/ig.png"></a>  
+                    <a href=""><img src="../img/yt.png"></a>
+                    <br><br>
+                    <div class="copy">
+                        <p><b>&copy; 2023 Abslt Studios. All rights reserved.</b></p>
+                    </div>
+                </footer>
+        </div>
+    </body>
 </html>
+
+
+

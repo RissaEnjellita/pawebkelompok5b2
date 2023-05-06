@@ -1,0 +1,150 @@
+@font-face {
+    font-family: header_font;
+    src: url(../font/header_font.otf);
+}
+
+@font-face {
+    font-family: nav_font;
+    src: url(../font/nav_font.ttf);
+}
+@font-face {
+    font-family: footer_name_font;
+    src: url(../font/footer_name_font.ttf);
+}
+
+@font-face {
+    font-family: slogan_font;
+    src: url(../font/slogan_font.ttf);
+}
+
+
+*{
+    margin: 0 auto;
+}
+
+.wrapper{
+    
+    width: 100%;
+}
+
+.header{
+    width: 100%;
+    z-index: 1000;
+    position: fixed;
+    height: 82px;
+    background: #ffffff;
+    top: -22px;
+}
+
+
+.content{
+   padding: 120px 60px 60px 60px;
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   grid-gap: 25px;
+   background-color: #bebebe;
+   
+
+
+}
+.content img{
+     width: 95%;
+     height: 270px;
+     object-fit: cover;
+     box-shadow: 1px 2px 3px #1111;
+     border-radius: 10px;
+     box-sizing: border-box;
+     -webkit-transform: perspective(1px) translateZ(0);
+     transform: perspective(1px) translateZ(0);
+    -webkit-transition-duration: 0.5s;
+     transition-duration: 0.5s;
+     -webkit-transition-property: transform;
+     transition-property: transform;
+}
+.content img:hover, .content img:focus, .content img:active {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+.header p{
+    letter-spacing: 1.3px;
+    font-family: header_font;
+    font-size: 23px;
+    padding: 38px 0px 0px 135px;
+    display: inline-block;
+    top: 10px;
+    color: #694e52;
+}
+.header a{
+    letter-spacing: 1.3px;
+    font-family: nav_font;
+    float: right;
+    padding-top: 42px;
+    padding-right: 39px;
+    text-decoration: none;
+    color: #694e52;
+    top: 10px;
+    
+    
+}
+.header a:hover{
+	    transform: scale(1.1);
+}
+footer {
+    background-color: #F3F5F5;
+    padding: 40px 0px 30px 60px;
+}
+
+footer div a{
+    margin-left: 7px;
+    text-indent: 5px;
+}
+
+#nama {
+    color: #694e52;
+    text-decoration: none;
+    font-size: 30px;
+    letter-spacing: 3px;
+    font-family: header_font;
+}
+
+#slogan {
+    color: #694e52;
+    font-size: 12px;
+    font-family: slogan_font;
+    letter-spacing: 3px;
+    margin-bottom: 2px;
+}
+
+#kontak {
+    color: #694e52;
+    font-size: 18px;
+    font-family: nav_font;
+    letter-spacing: 2px;
+}
+.copy p{
+    color:#7b7b7b;
+    font-family: footer_name_font;
+}
+hr{
+    color: #F3F5F5;
+}
+ 
+
+
+.link{
+    background-color:#694e52;
+    color: antiquewhite;
+    text-decoration: none;
+    border: 2px solid transparent;
+    font-weight: bold;
+    padding: 10px 25px;
+    border-radius: 30px;
+    transition: transform .4s; 
+    position: absolute;
+    margin-left: 100px;
+    font-family: nav_font;
+    letter-spacing: 1px;
+}
+.link:hover{
+    transform: scale(1.2);
+}

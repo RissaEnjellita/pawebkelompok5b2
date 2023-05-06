@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 
 <?php
 
@@ -51,28 +50,61 @@ if( isset($_POST["update"])){
 
 ?>
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Customer</title>
-</head>
-<body>
-    <h1>Update Customer</h1>
-    <form action="" method="post">
-        <?php while( $row = mysqli_fetch_assoc( $result)) {?>
-        Nama:
-        <input type="text" name="nama" value="<?php echo $row['nama']?>">
-        <br>
-        No. HP:
-        <input type="text" name="nomor_hp" value="<?php echo $row['nomor_hp']?>">
-        <br>
-        Alamat:
-        <input type="text" name="alamat" value="<?php echo $row['alamat']?>">
-        <br>
-        <button type="submit" name="update">UPDATE</button>
-        <?php }?>
-    </form>
-</body>
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/crud.css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portfolibsite</title>
+
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="header">
+                <p><b>ABSLT STUDIO</b></p>
+                <a href="logout.php">Logout</a>
+            </div>
+            <div class="content">
+            <h3>Update Customer</h3>
+            <form action="" method="post">
+                <?php while( $row = mysqli_fetch_assoc( $result)) {?>
+                Nama:
+                <br>
+                <br>
+                <input type="text" name="nama" value="<?php echo $row['nama']?>">
+                <br>
+                No. HP:
+                <br>
+                <br>
+                <input type="text" name="nomor_hp" value="<?php echo $row['nomor_hp']?>">
+                <br>
+                Alamat:
+                <br>
+                <br>
+                <input type="text" name="alamat" value="<?php echo $row['alamat']?>">
+                <br>
+                <button type="submit" name="update">UPDATE</button>
+                <?php }?>
+            </form>
+            </div>
+            <footer>
+                <b>ABSLT STUDIO</b></a>
+                <br>
+                <p id="slogan">REDEFINING MOMENTS</p>
+                <br>
+                <p id="kontak"><b>Found us</b></p>
+                <br>
+                
+                    <a href="https://instagram.com/indrabna?igshid=OGQ2MjdiOTE=" target="_blank" ><img src="../img/ig.png"></a>  
+                    <a href=""><img src="../img/yt.png"></a>
+                    <br><br>
+                    <div class="copy">
+                        <p><b>&copy; 2023 Abslt Studios. All rights reserved.</b></p>
+                    </div>
+                </footer>
+        </div>
+    </body>
 </html>
+

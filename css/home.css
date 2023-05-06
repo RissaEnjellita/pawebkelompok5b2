@@ -1,0 +1,160 @@
+@font-face {
+    font-family: header_font;
+    src: url(../font/header_font.otf);
+}
+
+@font-face {
+    font-family: nav_font;
+    src: url(../font/nav_font.ttf);
+}
+@font-face {
+    font-family: footer_name_font;
+    src: url(../font/footer_name_font.ttf);
+}
+
+@font-face {
+    font-family: slogan_font;
+    src: url(../font/slogan_font.ttf);
+}
+
+*{
+    margin: 0 auto;
+}
+
+.wrapper{
+    
+    width: 100%;
+}
+
+.header{
+    width: 100%;
+    z-index: 1000;
+    position: fixed;
+    height: 82px;
+    background: #ffffff;
+    top: -22px;
+}
+.content{
+    position: relative;
+    image-resolution: 100%;
+    background-image: url(../img/halaman.jpg);
+    min-height: 945px;
+    background-repeat: no-repeat;
+    margin: 0px 0px;
+    width: 100%;
+    background-size: auto;
+    padding-top: 300px;
+    
+    
+}
+
+.content p{
+    font-family: header_font;
+    letter-spacing: 30px;
+    font-size: 50px;
+    text-align: center;
+    color: #694e52;
+    padding-top: 10px;
+}
+.content h1{
+    font-family: nav_font;
+    text-align: center;
+    color: antiquewhite;
+    font-size: 15px;
+    letter-spacing: 1.1px;
+    padding-top: 15px;
+    padding-bottom: 260px;
+}
+.content h2{
+    font-family: nav_font;
+    color: antiquewhite;
+    font-size: 60px;
+    margin-left: 100px;
+    padding-bottom: 20px;
+
+}
+.header p{
+    letter-spacing: 1.3px;
+    font-family: header_font;
+    font-size: 23px;
+    padding: 38px 0px 0px 135px;
+    display: inline-block;
+    top: 10px;
+    color: #694e52;
+}
+.header a{
+    letter-spacing: 1.3px;
+    font-family: nav_font;
+    float: right;
+    padding-top: 42px;
+    padding-right: 39px;
+    text-decoration: none;
+    color: #694e52;
+    top: 10px;
+    
+}
+.header a:hover{
+	    transform: scale(1.1);
+}
+footer {
+    background-color: #F3F5F5;
+    padding: 40px 0px 30px 60px;
+}
+
+footer div a{
+    margin-left: 7px;
+    text-indent: 5px;
+}
+
+#nama {
+    color: #694e52;
+    text-decoration: none;
+    font-size: 30px;
+    letter-spacing: 3px;
+    font-family: header_font;
+}
+
+#slogan {
+    color: #694e52;
+    font-size: 12px;
+    font-family: slogan_font;
+    letter-spacing: 3px;
+    margin-bottom: 2px;
+}
+
+#kontak {
+    color: #694e52;
+    font-size: 18px;
+    font-family: nav_font;
+    letter-spacing: 2px;
+}
+.copy p{
+    color:#7b7b7b;
+    font-family: footer_name_font;
+}
+hr{
+    color: #F3F5F5;
+}
+ 
+
+
+.link{
+    background-color:#694e52;
+    color: antiquewhite;
+    text-decoration: none;
+    border: 2px solid transparent;
+    font-weight: bold;
+    padding: 10px 25px;
+    border-radius: 30px;
+    transition: transform .4s; 
+    position: absolute;
+    margin-left: 100px;
+    font-family: nav_font;
+    letter-spacing: 1px;
+}
+.link:hover{
+    transform: scale(1.2);
+}
+
+
+
