@@ -30,7 +30,7 @@ require "koneksi.php";
                 <h1>Redefining your moments</h1>
                 <h2>CAPTURING <i>forever feelings</i> AND </h2>
                 <h2><i>love stories</i> THROUGH ART</h2>
-                <a href="daftar.php" class="link" >Book now</a>
+                <a href="customer.php" class="link" >Book now</a>
                 </a>
     
             </div>
