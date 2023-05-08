@@ -1,9 +1,10 @@
+<!DOCTYPE html>
 
 <?php
 
 require "koneksi.php";
 
-$id = $_GET["id"];
+$id = $_POST["id"];
 
 $query = "SELECT * FROM transaction1 WHERE id = '$id'";
 $result = mysqli_query($conn, $query);
@@ -14,8 +15,8 @@ function ubah($data){
     $id = $_POST["id"];
     $status = $_POST["status"];
 
-    $query = "UPDATE transaction set 
-                status1 = '$status',
+    $query = "UPDATE transaction1 set 
+                status1 = '$status'
                 WHERE id = '$id'";
                 return mysqli_query($conn, $query);
 }
@@ -72,7 +73,7 @@ if( isset($_POST["update"])){
                 Status:
                 <br>
                 <br>
-                <input type="text" name="status" value="<?php echo $row['status']?>">
+                <input type="text" name="status" value="<?php echo $row['status1']?>">
                 <br>
                 <button type="submit" name="update">UPDATE</button>
                 <?php }?>

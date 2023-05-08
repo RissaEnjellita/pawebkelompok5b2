@@ -2,14 +2,7 @@
 
     require "koneksi.php";
 
-    $query = "SELECT * FROM photographer";
-    $result = mysqli_query($conn, $query);
 
-    $query2 = "SELECT * FROM camera";
-    $result2 = mysqli_query($conn, $query2);
-
-    $query3 = "SELECT * FROM customer";
-    $result3 = mysqli_query($conn, $query3);
 
     $query4 = "SELECT * FROM transaction1";
     $result4 = mysqli_query($conn, $query4);
@@ -49,22 +42,24 @@
                             </tr>
                         </thead>
                     <?php
-                    while( $row = mysqli_fetch_assoc($result)) {
+                        $ambil = mysqli_query($conn, "SELECT * FROM photographer");
+                        $result = mysqli_fetch_all($ambil, MYSQLI_ASSOC);
 
                     ?>
                         <tbody>
+                        <?php foreach($result as $result) : ?>
                             <tr>
-                                <td style="text-align: center;"><?php echo $row["id"] ?></td>
-                                <td><?php echo $row["nama"] ?></td>
-                                <td><?php echo $row["nomor_hp"] ?></td>
-                                <td><?php echo $row["id_kamera"] ?></td>
+                                <td scope="row" style="text-align: center;"><?php echo $result["id"] ?></td>
+                                <td><?php echo $result["nama"] ?></td>
+                                <td><?php echo $result["nomor_hp"] ?></td>
+                                <td><?php echo $result["id_kamera"] ?></td>
                                 <td>
-                                    <a href="delete_photographer.php?id=<?= $row['id'] ?>">HAPUS</a>
-                                    <a href="update_photographer.php?id=<?= $row['id'] ?>">UPDATE</a>
+                                    <a href="delete_photographer.php?id=<?= $result['id'] ?>">HAPUS</a>
+                                    <a href="update_photographer.php?id=<?= $result['id'] ?>">UPDATE</a>
                                 </td>
                             </tr>
                         </tbody>
-                    <?php }?>   
+                        <?php endforeach?>   
                     </table>
                     
                     <h3>Camera</h3>
@@ -82,22 +77,24 @@
                             </tr>
                         </thead>
                     <?php
-                    while( $row = mysqli_fetch_assoc($result2)) {
+                        $ambil = mysqli_query($conn, "SELECT * FROM camera");
+                        $result = mysqli_fetch_all($ambil, MYSQLI_ASSOC);
 
                     ?>
                         <tbody>
+                        <?php foreach($result as $result) : ?>
                             <tr>
-                                <td style="text-align: center;"><?php echo $row["id"] ?></td>
-                                <td><?php echo $row["kamera"] ?></td>
-                                <td><?php echo $row["jenis"] ?></td>
-                                <td><?php echo $row["kapasitas"] ?></td>
+                                <td style="text-align: center;"><?php echo $result["id"] ?></td>
+                                <td><?php echo $result["kamera"] ?></td>
+                                <td><?php echo $result["jenis"] ?></td>
+                                <td><?php echo $result["kapasitas"] ?></td>
                                 <td>
-                                    <a href="delete_camera.php?id=<?= $row['id'] ?>">HAPUS</a>
-                                    <a href="update_camera.php?id=<?= $row['id'] ?>">UPDATE</a>
+                                    <a href="delete_camera.php?id=<?= $result['id'] ?>">HAPUS</a>
+                                    <a href="update_camera.php?id=<?= $result['id'] ?>">UPDATE</a>
                                 </td>
                             </tr>
                         </tbody>
-                    <?php }?>   
+                        <?php endforeach?>  
                     </table>
 
                     <h3>Customer</h3>
@@ -111,25 +108,27 @@
                                 <th>Pengaturan</th>
                             </tr>
                         </thead>
+                        <?php $i = 1; ?>
                     <?php
-                    $i = 1;
-                    while( $row = mysqli_fetch_assoc($result3)) {
+                        $ambil = mysqli_query($conn, "SELECT * FROM customer");
+                        $result = mysqli_fetch_all($ambil, MYSQLI_ASSOC);
 
-                    ?>
+                        ?>
                         <tbody>
+                        <?php foreach($result as $result) : ?>
                             <tr>
                                 <td style="text-align: center;"><?php echo $i ?></td>
-                                <td><?php echo $row["nama"] ?></td>
-                                <td><?php echo $row["nomor_hp"] ?></td>
-                                <td><?php echo $row["alamat"] ?></td>
+                                <td><?php echo $result["nama"] ?></td>
+                                <td><?php echo $result["nomor_hp"] ?></td>
+                                <td><?php echo $result["alamat"] ?></td>
                                 <td>
-                                    <a href="delete_customer.php?id=<?= $row['nama'] ?>">HAPUS</a>
-                                    <a href="update_customer.php?id=<?= $row['nama'] ?>">UPDATE</a>
+                                    <a href="delete_customer.php?nama=<?= $result['nama'] ?>">HAPUS</a>
+                                    <a href="update_customer.php?nama=<?= $result['nama'] ?>">UPDATE</a>
                                 </td>
                             </tr>
                         </tbody>
                     <?php $i++ ?>
-                    <?php }?>   
+                    <?php endforeach?> 
                     </table>
 
                     <h3>Transaction</h3>

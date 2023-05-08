@@ -1,93 +1,90 @@
+<!DOCTYPE html>
 
 <?php
-
 require "koneksi.php";
 
 $nama = $_GET["nama"];
 
-$query = "SELECT * FROM customer WHERE id = '$nama'";
+// Ambil data customer berdasarkan nama dari database
+$query = "SELECT * FROM customer WHERE nama = '$nama'";
 $result = mysqli_query($conn, $query);
+$row = mysqli_fetch_assoc($result);
 
-function ubah($data){
-    global $conn;
+if (isset($_POST['update'])) {
+    // Ambil data baru dari form, jika tidak diisi maka gunakan data lama
+    $nama2 = $_POST["nama"] ?? $row['nama'];
+    $nomor_hp = $_POST["nomor_hp"] ?? $row['nomor_hp'];
+    $alamat = $_POST["alamat"] ?? $row['alamat'];
 
-    $nama2 = $_POST["nama"];
-    $nomor_hp = $_POST["nomor_hp"];
-    $alamat = $_POST["alamat"];
-
-    $query = "UPDATE photographer set
+    
+    // Ubah data pada tabel customer
+    $query1 = "UPDATE customer SET
                 nama = '$nama2',
                 nomor_hp = '$nomor_hp',
-                id_kamera = '$alamat'
-                WHERE id = '$nama'";
-                return mysqli_query($conn, $query);
-}
-
-if( isset($_GET[$nama])){
-    header("Location: admin.php");
-    exit;
-}else if( mysqli_num_rows($result) > 0){
-}else{
-    header("Location: admin.php");
-    exit;
-}
-
-
-
-if( isset($_POST["update"])){
-    if( ubah($_POST) > 0){
-     echo "<script>
-            alert('Berhasil Mengubah Data');
-            document.location.href = 'admin.php'
-           </script>";
-    }else{
-    echo "<script>
-            alert('Gagal Mengubah Data');
-            document.location.href = 'admin.php'
-          </script>";
+                alamat = '$alamat'
+                WHERE nama = '$row[nama]'";
+    mysqli_query($conn, $query1);
+    
+    
+    if (mysqli_affected_rows($conn) >= 0) {
+        if (mysqli_affected_rows($conn) == 0) {
+            echo "<script>
+                    alert('Tidak Ada Perubahan Data');
+                    document.location.href = 'admin.php'
+                  </script>";
+        } else {
+            echo "<script>
+                    alert('Berhasil Mengubah Data');
+                    document.location.href = 'admin.php'
+                  </script>";
+        }
+    } else {
+        echo "<script>
+                alert('Gagal Mengubah Data');
+                document.location.href = 'admin.php'
+              </script>";
     }
+    
+    
 }
 
-?>
 
+
+
+// Tampilkan form untuk mengupdate data customer
+if ($row) {
+?>
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="css/crud.css">
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Portfolibsite</title>
-
-    </head>
-    <body>
-        <div class="wrapper">
-            <div class="header">
-                <p><b>ABSLT STUDIO</b></p>
-                <a href="logout.php">Logout</a>
-            </div>
-            <div class="content">
+<head>
+    <link rel="stylesheet" type="text/css" href="css/crud.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolibsite</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <p><b>ABSLT STUDIO</b></p>
+            <a href="logout.php">Logout</a>
+        </div>
+        <div class="content">
             <h3>Update Customer</h3>
             <form action="" method="post">
-                <?php while( $row = mysqli_fetch_assoc( $result)) {?>
-                Nama:
-                <br>
-                <br>
+                Nama:<br><br>
                 <input type="text" name="nama" value="<?php echo $row['nama']?>">
-                <br>
-                No. HP:
-                <br>
-                <br>
+                <br><br>
+                No. HP:<br><br>
                 <input type="text" name="nomor_hp" value="<?php echo $row['nomor_hp']?>">
-                <br>
-                Alamat:
-                <br>
-                <br>
+                <br><br>
+                Alamat:<br><br>
                 <input type="text" name="alamat" value="<?php echo $row['alamat']?>">
-                <br>
+                <br><br>
                 <button type="submit" name="update">UPDATE</button>
-                <?php }?>
             </form>
+
+            <?php } ?>
             </div>
             <footer>
                 <b>ABSLT STUDIO</b></a>
@@ -103,8 +100,10 @@ if( isset($_POST["update"])){
                     <div class="copy">
                         <p><b>&copy; 2023 Abslt Studios. All rights reserved.</b></p>
                     </div>
+                    
                 </footer>
         </div>
     </body>
 </html>
+
 

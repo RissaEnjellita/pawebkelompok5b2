@@ -59,7 +59,7 @@ require "koneksi.php";
     <body>
         <div class="wrapper">
             <div class="header">
-                <!-- <p><b>Hello, </b><span id='hello' style="font-weight: 600;"></span></p>     -->
+                <p><b>Hello, </b><span id='hello' style="font-weight: 600;"></span></p>    
                 <p><b>ABSLT STUDIO</b></p>
                 <a href="customer.php"><b>Book Now</b></a>
                 <a href="kontak.php">Contact Us</a>
@@ -89,12 +89,78 @@ require "koneksi.php";
                     <br>
                     <button type="submit" name="tambah2">Daftar</button>
                 </form>
+                <script>
+                    function searchTable(inputId, tableId) {
+                    var input, filter, table, tr, td, i, txtValue;
+                    input = document.getElementById(inputId);
+                    filter = input.value.toUpperCase();
+                    table = document.getElementById(tableId);
+                    tr = table.getElementsByTagName("tr");
+                    for (i = 0; i < tr.length; i++) {
+                        td = tr[i].getElementsByTagName("td");
+                        for (var j = 0; j < td.length; j++) {
+                        if (td[j]) {
+                            txtValue = td[j].textContent || td[j].innerText;
+                            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                            break;
+                            } else {
+                            tr[i].style.display = "none";
+                            }
+                        }
+                        }
+                    }
+                    }
+                </script>
+                <script>
+                    function sortTable(tableId, n) {
+                        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+                        table = document.getElementById(tableId);
+                        switching = true;
+                        dir = "asc";
+                        while (switching) {
+                            switching = false;
+                            rows = table.rows;
+                            for (i = 1; i < (rows.length - 1); i++) {
+                                shouldSwitch = false;
+                                x = rows[i].getElementsByTagName("TD")[n];
+                                y = rows[i + 1].getElementsByTagName("TD")[n];
+                                if (dir == "asc") {
+                                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                                        shouldSwitch= true;
+                                        break;
+                                    }
+                                } else if (dir == "desc") {
+                                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                                        shouldSwitch= true;
+                                        break;
+                                    }
+                                }
+                            }
+                            if (shouldSwitch) {
+                                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                                switching = true;
+                                switchcount ++;      
+                            } else {
+                                if (switchcount == 0 && dir == "asc") {
+                                    dir = "desc";
+                                    switching = true;
+                                }
+                            }
+                        }
+                    }
+                </script>
+
                     <h3>Customer</h3>
-                    <table border="1" cellpadding="10" cellspacing="0" class="ctable">
+                    <label type="search" style="text-align : center;">
+                        Search Customer
+                        <input type="search" id="customerInput" onkeyup="searchTable('customerInput', 'customerTable')" placeholder="Search" title="Type in a name">
+                    </label>
+                    <table border="1" cellpadding="10" cellspacing="0" class="ctable" id="customerTable">
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama</th>
+                                <th onclick="sortTable('customerTable', 1)">Nama</th>
                                 <th>No. HP</th>
                                 <th>ID_Kamera</th>
                             </tr>
@@ -115,11 +181,15 @@ require "koneksi.php";
                     </table>
                     
                     <h3>Camera</h3>
-                    <table border="1" cellpadding="10" cellspacing="0" class="ctable">
+                    <label type="search" style="text-align : center;">
+                        Search Camera
+                        <input type="search" id="cameraInput" onkeyup="searchTable('cameraInput', 'cameraTable')" placeholder="Search" title="Type in a name">
+                    </label>
+                    <table border="1" cellpadding="10" cellspacing="0" class="ctable" id="cameraTable">
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Kamera</th>
+                                <th onclick="sortTable('cameraTable', 1)">Kamera</th>
                                 <th>Jenis</th>
                                 <th>Kapasitas</th>
                             </tr>
@@ -151,6 +221,14 @@ require "koneksi.php";
                         <br>
                         <button type="submit" name="tambah">Pesan</button>
                     </form>
+                    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+                    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+                    <script>
+                        $(document).ready(function() {
+                            $('#example').DataTable();
+                        } );
+                    </script>
                 
                         </div>
                         <footer>
