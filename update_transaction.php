@@ -4,7 +4,7 @@
 
 require "koneksi.php";
 
-$id = $_POST["id"];
+$id = $_GET["id"];
 
 $query = "SELECT * FROM transaction1 WHERE id = '$id'";
 $result = mysqli_query($conn, $query);
@@ -48,32 +48,28 @@ if( isset($_POST["update"])){
 
 ?>
 
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="css/crud.css">
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Portfolibsite</title>
-
-    </head>
-    <body>
-        <div class="wrapper">
-            <div class="header">
-                <p><b>ABSLT STUDIO</b></p>
-                <a href="logout.php">Logout</a>
-            </div>
-            <div class="content">
-            <h3>Update Transaction</h3>
-            <form action="" method="post">
-                <?php while( $row = mysqli_fetch_assoc( $result)) {?>
-                    <input type="hidden" name="id" value="<?php echo $row['id']?>">
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="css/crud.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Transaction</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <p><b>ABSLT STUDIO</b></p>
+            <a href="logout.php"></a>
+        </div>
+        <div class="content">
+        <h3>Update Transaction</h3>
+        <form action="" method="post">
+            <?php while( $row = mysqli_fetch_assoc( $result)) {?>
+                <input type="hidden" name="id" value="<?php echo $row['id']?>">
                 Status:
-                <br>
-                <br>
                 <input type="text" name="status" value="<?php echo $row['status1']?>">
+                <br>
                 <br>
                 <button type="submit" name="update">UPDATE</button>
                 <?php }?>
@@ -94,8 +90,6 @@ if( isset($_POST["update"])){
                         <p><b>&copy; 2023 Abslt Studios. All rights reserved.</b></p>
                     </div>
                 </footer>
-        </div>
-    </body>
+    </div>
+</body>
 </html>
-
-

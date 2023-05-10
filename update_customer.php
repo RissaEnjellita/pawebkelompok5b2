@@ -16,7 +16,10 @@ if (isset($_POST['update'])) {
     $nomor_hp = $_POST["nomor_hp"] ?? $row['nomor_hp'];
     $alamat = $_POST["alamat"] ?? $row['alamat'];
 
-    
+    mysqli_query($conn, "SET foreign_key_checks = 0");
+    mysqli_query($conn, "UPDATE transaction1 SET nama_customer='$nama2' WHERE nama_customer='$row[nama]'");
+    mysqli_query($conn, "SET foreign_key_checks = 1");
+
     // Ubah data pada tabel customer
     $query1 = "UPDATE customer SET
                 nama = '$nama2',

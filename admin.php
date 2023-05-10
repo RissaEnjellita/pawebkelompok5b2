@@ -157,7 +157,7 @@
                                 <td><?php echo $row["status1"] ?></td>
                                 <td>
                                     <a href="delete_transaction.php?id=<?= $row['id'] ?>">HAPUS</a>
-                                    <a href="update_transaksi.php?id=<?= $row['id'] ?>">UPDATE</a>
+                                    <a href="update_transaction.php?id=<?= $row['id'] ?>">UPDATE</a>
                                 </td>
                             </tr>
                         </tbody>
