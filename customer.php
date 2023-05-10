@@ -15,14 +15,14 @@
     
         $query3 = "INSERT INTO transaction1 VALUES
                     ('','$nama2', '$id_photographer', '$jenis_layanan','')";
-        mysqli_query($conn, $query3);
+        $masuk = mysqli_query($conn, $query3);
     
-        echo "<script>
-                alert('Berhasil Memesan!');
-                document.location.href = 'customer.php':
-              </script>";
-        
-        header("Location: customer.php");
+        if ($masuk) {
+            echo "<script>
+                        alert('Berhasil Memesan!');
+                        document.location.href = 'customer.php';
+                    </script>";
+        }
     }
     
     if( isset($_GET["tambah2"])){
@@ -32,14 +32,14 @@
     
         $query4 = "INSERT INTO customer VALUES
                     ('$nama', '$nomor_hp', '$alamat')";
-        mysqli_query($conn, $query4);
+        $masuk2 = mysqli_query($conn, $query4);
     
-        echo "<script>
-                alert('Berhasil Mendaftar!');
-                document.location.href = 'customer.php':
-              </script>";
-        
-        header("Location: customer.php");
+        if ($masuk2) {
+            echo "<script>
+                    alert('Berhasil Mendaftar!');
+                    document.location.href = 'customer.php';
+                </script>";
+}
     }
 ?>
 
@@ -53,6 +53,7 @@ require "koneksi.php";
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
         <title>Portfolibsite</title>
 
     </head>
@@ -148,19 +149,38 @@ require "koneksi.php";
                                 }
                             }
                         }
+                        setSortArrow(n, dir);
+                    }
+                    function setSortArrow(n, dir) {
+                        var th = document.getElementsByTagName("th")[n];
+                        var ths = document.getElementsByTagName("th");
+                        for (i = 0; i < ths.length; i++) {
+                            ths[i].classList.remove("arrow-up");
+                            ths[i].classList.remove("arrow-down");
+                        }
+                        if (dir == "asc"){
+                            th.classList.add("arrow-up");
+                        }else if (dir == "desc"){
+                            th.classList.add("arrow-down");
+                        }
                     }
                 </script>
 
-                    <h3>Customer</h3>
+                    <h3>Photographer</h3>
                     <label type="search" style="text-align : center;">
-                        Search Customer
-                        <input type="search" id="customerInput" onkeyup="searchTable('customerInput', 'customerTable')" placeholder="Search" title="Type in a name">
+                        Search Photographer
+                        <input type="search" id="photographerInput" onkeyup="searchTable('photographerInput', 'photographerTable')" placeholder="Search" title="Type in a name">
                     </label>
-                    <table border="1" cellpadding="10" cellspacing="0" class="ctable" id="customerTable">
+                    <table border="1" cellpadding="10" cellspacing="0" class="ctable" id="photographerTable">
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th onclick="sortTable('customerTable', 1)">Nama</th>
+                                <th class="sortable" onclick="sortTable('photographerTable', 1, 'asc')">
+                                    Nama
+                                    <span id="arrow-down" class="fas fa-long-arrow-alt-down" onclick="sortTable('photographerTable', 1, 'asc')"></span>
+                                    <span id="arrow-up" class="fas fa-long-arrow-alt-up" onclick="sortTable('photographerTable', 1, 'desc')"></span>
+                                </th>
+
                                 <th>No. HP</th>
                                 <th>ID_Kamera</th>
                             </tr>
@@ -189,7 +209,11 @@ require "koneksi.php";
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th onclick="sortTable('cameraTable', 1)">Kamera</th>
+                                <th class="sortable" onclick="sortTable('cameraTable', 1)">
+                                Kamera
+                                <span id="arrow-down" class="fas fa-long-arrow-alt-down" onclick="sortTable('cameraTable', 1, 'asc')"></span>
+                                    <span id="arrow-up" class="fas fa-long-arrow-alt-up" onclick="sortTable('cameraTable', 1, 'desc')"></span>
+                            </th>
                                 <th>Jenis</th>
                                 <th>Kapasitas</th>
                             </tr>

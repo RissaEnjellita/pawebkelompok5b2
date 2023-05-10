@@ -267,5 +267,25 @@ hr{
     transform: scale(1.2);
 }
 
+/* .th.sortable.arrow-up:before, .th.sortable.arrow-down:before {
+    color: blue;
+  } */
+  
+
+/* Style untuk tombol sorting */
+th .sortable {
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .sortable span {
+    transition: transform 0.2s ease-in-out;
+}
+
+.sortable:hover .arrow-up,
+.sortable:hover .arrow-down {
+    transform: rotate(180deg);
+}
+
 
 
