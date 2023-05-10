@@ -7,6 +7,9 @@
 
     $query2 = "SELECT * FROM camera";
     $result2 = mysqli_query($conn, $query2);
+
+    $query4 = "SELECT * FROM transaction1";
+    $result4 = mysqli_query($conn, $query4);
 ?>
 
 
@@ -77,6 +80,35 @@
                                 <td><?php echo $row["kapasitas"] ?></td>
                             </tr>
                         </tbody>
+                    <?php }?>   
+                    </table>
+
+                    <h3>Transaction</h3>
+                    <table border="1" cellpadding="10" cellspacing="0" class="ctable">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Customer</th>
+                                <th>ID Photographer</th>
+                                <th>Jenis Layanan</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                    <?php
+                    $i = 1;
+                    while( $row = mysqli_fetch_assoc($result4)) {
+
+                    ?>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center;"><?php echo $i ?></td>
+                                <td><?php echo $row["nama_customer"] ?></td>
+                                <td><?php echo $row["id_photographer"] ?></td>
+                                <td><?php echo $row["jenis_layanan"] ?></td>
+                                <td><?php echo $row["status1"] ?></td>
+                            </tr>
+                        </tbody>
+                    <?php $i++ ?>
                     <?php }?>   
                     </table>
                 </div>
